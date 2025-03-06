@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class FocusCamera : MonoBehaviour
@@ -5,8 +6,14 @@ public class FocusCamera : MonoBehaviour
     // game objects to triangulate the angles
     public GameObject focus;
     public GameObject player;
-    public float cameraDistance;
+    public float cameraDistance = 5.0f;
     private Vector3 offset = new Vector3(0, 5, 0);
+
+    public float xDiff;
+    public float yDiff;
+    public float zDiff;
+    public float xAngle;
+    public float yAngle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,8 +25,29 @@ public class FocusCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.position = player.transform.position + offset;
+        transform.rotation = new quaternion(0, 0, 0, 0);
+
+        // calculate position differences
+        xDiff = focus.transform.position.x - transform.position.x;
+        yDiff = focus.transform.position.y - transform.position.y;
+        zDiff = focus.transform.position.z - transform.position.z;
+
+        // calculate angles
+        yAngle = math.atan(xDiff/zDiff);
+        xAngle = math.atan(yDiff/math.cos(yAngle)); 
+        transform.Rotate(new Vector3(xAngle, RadiansToDegrees(yAngle)));
+        transform.Translate(Vector3.back * cameraDistance);
     }
+
+    float RadiansToDegrees(float rad)
+    {
+        float deg = rad;
+        deg *= 180;
+        deg /= math.PI;
+        return deg;
+    }
+
 }

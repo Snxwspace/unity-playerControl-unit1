@@ -2020,7 +2020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1652624990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: {fileID: 1509874287}
   player: {fileID: 358446524}
-  cameraDistance: 0
+  cameraDistance: 5
+  xDiff: 0
+  yDiff: 0
+  zDiff: 0
+  xAngle: 0
+  yAngle: 0
 --- !u!114 &1652624991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2147,7 +2152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652624989}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.00000046193594, y: -0.00000044703495, z: -0.0000004619357, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
