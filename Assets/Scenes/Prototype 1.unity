@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: {fileID: 1509874287}
   player: {fileID: 358446524}
-  cameraDistance: 5
+  cameraDistance: 10
   xDiff: 0
   yDiff: 0
   zDiff: 0

@@ -35,10 +35,16 @@ public class FocusCamera : MonoBehaviour
         yDiff = focus.transform.position.y - transform.position.y;
         zDiff = focus.transform.position.z - transform.position.z;
 
+        // fix that bizzare camera flipping bug
+        int flip = 0;
+        if(math.sign(zDiff) == -1) {
+            flip = 180;
+        }
+
         // calculate angles
         yAngle = math.atan(xDiff/zDiff);
-        xAngle = math.atan(yDiff/math.cos(yAngle)); 
-        transform.Rotate(new Vector3(xAngle, RadiansToDegrees(yAngle)));
+        xAngle = math.atan(yDiff/math.cos(yAngle)); // feeding bad info
+        transform.Rotate(new Vector3(xAngle, RadiansToDegrees(yAngle) - flip));
         transform.Translate(Vector3.back * cameraDistance);
     }
 
