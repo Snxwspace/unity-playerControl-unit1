@@ -900,6 +900,7 @@ GameObject:
   - component: {fileID: 534669903}
   - component: {fileID: 534669907}
   - component: {fileID: 534669908}
+  - component: {fileID: 534669909}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1038,6 +1039,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 358446524}
+--- !u!114 &534669909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70a43300b2613d41acbf0f4aed6df60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: {fileID: 534669902}
+  alternate: {fileID: 1652624989}
 --- !u!1001 &541227201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2014,13 +2029,14 @@ GameObject:
   - component: {fileID: 1652624992}
   - component: {fileID: 1652624991}
   - component: {fileID: 1652624990}
+  - component: {fileID: 1652624995}
   m_Layer: 0
   m_Name: CrateCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1652624990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2153,6 +2169,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652624995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652624989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70a43300b2613d41acbf0f4aed6df60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: {fileID: 1652624989}
+  alternate: {fileID: 534669902}
 --- !u!1001 &1743662303
 PrefabInstance:
   m_ObjectHideFlags: 0
