@@ -6,14 +6,14 @@ public class FocusCamera : MonoBehaviour
     // game objects to triangulate the angles
     public GameObject focus;
     public GameObject player;
-    public float cameraDistance = 5.0f;
-    private Vector3 offset = new Vector3(0, 5, 0);
+    private float cameraDistance = 10.0f;
+    private float offset = 6.0f;
 
-    public float xDiff;
-    public float yDiff;
-    public float zDiff;
-    public float xAngle;
-    public float yAngle;
+    private float xDiff;
+    private float yDiff;
+    private float zDiff;
+    private float xAngle;
+    private float yAngle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +27,7 @@ public class FocusCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        transform.position = player.transform.position + new Vector3(0, offset, 0);
         transform.rotation = new quaternion(0, 0, 0, 0);
 
         // calculate position differences
@@ -42,9 +42,10 @@ public class FocusCamera : MonoBehaviour
         }
 
         // calculate angles
-        yAngle = math.atan(xDiff/zDiff);
-        xAngle = math.atan(yDiff/math.cos(yAngle)); // feeding bad info
-        transform.Rotate(new Vector3(xAngle, RadiansToDegrees(yAngle) - flip));
+        yAngle = math.atan(xDiff/zDiff); // good info
+        xAngle = -math.abs(zDiff)/math.cos(yAngle); // feeding bad info
+        xAngle = math.atan(yDiff/xAngle);
+        transform.Rotate(new Vector3(RadiansToDegrees(xAngle), RadiansToDegrees(yAngle) - flip));
         transform.Translate(Vector3.back * cameraDistance);
     }
 
